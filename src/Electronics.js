@@ -11,7 +11,7 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import Footer from "./Footer";
-function Home()
+function Electronics()
 {
     const [apidata,setData]=useState([])
     useEffect(()=>{
@@ -26,6 +26,7 @@ function Home()
        <MDBRow className='row-cols-1 row-cols-md-3 g-4' style={{padding:"10px"}}>
        {
         apidata.map((item)=>
+            item.category=="electronics"?
        <MDBCol >
         <MDBCard className='h-100' style={{padding:"10px"}}>
          <center>
@@ -47,7 +48,7 @@ function Home()
             <MDBBtn style={{width:"130px",height:"36px"}}>AddtoCart</MDBBtn>
           </MDBCardBody>
         </MDBCard>
-      </MDBCol>  
+      </MDBCol>:null
         )
        }
     </MDBRow>
@@ -55,4 +56,4 @@ function Home()
     </div>
   )
 }
-export default Home
+export default Electronics

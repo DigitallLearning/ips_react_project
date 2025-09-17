@@ -11,11 +11,11 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import Footer from "./Footer";
-function Home()
+function Jwellery()
 {
     const [apidata,setData]=useState([])
     useEffect(()=>{
-       fetch("https://fakestoreapi.com/products").then((result)=>{
+       fetch("https://fakestoreapi.com/products/category/jewelery").then((result)=>{
            result.json().then((data)=>{
                 setData(data)
            })
@@ -55,4 +55,4 @@ function Home()
     </div>
   )
 }
-export default Home
+export default Jwellery
