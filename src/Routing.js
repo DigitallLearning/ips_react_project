@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import Electronics from './Electronics';
 import Jwellery from './Jwellery';
+import Item from './Item';
 function Routing() {
   return (
     <>
@@ -22,6 +23,7 @@ function Routing() {
         <Route path='/' Component={Home}></Route>
          <Route path='/electronics' Component={Electronics}></Route>
           <Route path='/jwellery' Component={Jwellery}></Route>
+            <Route path='/item' Component={Item}></Route>
       </Routes>
     </>
   );

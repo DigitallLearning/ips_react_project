@@ -11,9 +11,12 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
+
 function Home()
 {
     const [apidata,setData]=useState([])
+    const navigate=useNavigate()
     useEffect(()=>{
        fetch("https://fakestoreapi.com/products").then((result)=>{
            result.json().then((data)=>{
@@ -21,6 +24,10 @@ function Home()
            })
        })
     },[])
+     function singleData(id)
+    {
+        navigate("/item")
+    }
   return(
     <div>
        <MDBRow className='row-cols-1 row-cols-md-3 g-4' style={{padding:"10px"}}>
@@ -43,7 +50,7 @@ function Home()
             <MDBCardText>
               {item.description.substring(0,100)}
             </MDBCardText>
-            <MDBBtn style={{width:"130px",height:"36px"}}>View Details</MDBBtn>&nbsp;&nbsp;
+            <MDBBtn style={{width:"130px",height:"36px"}} onClick={()=>singleData(item.id)}>View Details</MDBBtn>&nbsp;&nbsp;
             <MDBBtn style={{width:"130px",height:"36px"}}>AddtoCart</MDBBtn>
           </MDBCardBody>
         </MDBCard>

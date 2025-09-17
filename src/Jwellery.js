@@ -21,6 +21,7 @@ function Jwellery()
            })
        })
     },[])
+   
   return(
     <div>
        <MDBRow className='row-cols-1 row-cols-md-3 g-4' style={{padding:"10px"}}>
@@ -43,7 +44,7 @@ function Jwellery()
             <MDBCardText>
               {item.description.substring(0,100)}
             </MDBCardText>
-            <MDBBtn style={{width:"130px",height:"36px"}}>View Details</MDBBtn>&nbsp;&nbsp;
+            <MDBBtn style={{width:"130px",height:"36px"}} >View Details</MDBBtn>&nbsp;&nbsp;
             <MDBBtn style={{width:"130px",height:"36px"}}>AddtoCart</MDBBtn>
           </MDBCardBody>
         </MDBCard>
