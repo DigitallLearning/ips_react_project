@@ -24,16 +24,16 @@ function Home()
            })
        })
     },[])
-     function singleData(id)
+     function singleData(pid)
     {
-        navigate("/item")
+        navigate("/item",{state:pid})
     }
   return(
     <div>
-       <MDBRow className='row-cols-1 row-cols-md-3 g-4' style={{padding:"10px"}}>
+       <MDBRow className='row-cols-1 row-cols-md-3 g-4' style={{padding:"10px"} }>
        {
-        apidata.map((item)=>
-       <MDBCol >
+        apidata.map((item,i)=>
+       <MDBCol key={i}>
         <MDBCard className='h-100' style={{padding:"10px"}}>
          <center>
              <MDBCardImage
