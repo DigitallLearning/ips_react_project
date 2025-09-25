@@ -18,7 +18,8 @@ function Home()
     const [apidata,setData]=useState([])
     const navigate=useNavigate()
     useEffect(()=>{
-       fetch("https://fakestoreapi.com/products").then((result)=>{
+       fetch("http://localhost:4000/").then((result)=>{
+        
            result.json().then((data)=>{
                 setData(data)
            })
@@ -45,7 +46,7 @@ function Home()
          </center>
           <MDBCardBody>
             <MDBCardTitle style={{color:"red"}}>{item.title}</MDBCardTitle>
-             <MDBCardTitle style={{color:"green"}}>{item.price*85} Rs</MDBCardTitle>
+             <MDBCardTitle style={{color:"green"}}>{item.price} Rs</MDBCardTitle>
               <MDBCardTitle style={{color:"blue"}}>{item.category}</MDBCardTitle>
             <MDBCardText>
               {item.description.substring(0,100)}
