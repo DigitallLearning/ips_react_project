@@ -11,23 +11,23 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import Footer from "./Footer";
-function Jwellery()
+function Mobile()
 {
     const [apidata,setData]=useState([])
     useEffect(()=>{
-       fetch("https://fakestoreapi.com/products/category/jewelery").then((result)=>{
+       fetch("http://localhost:4000/category/mobile").then((result)=>{
            result.json().then((data)=>{
+              console.log(data)
                 setData(data)
            })
        })
     },[])
-   
   return(
     <div>
        <MDBRow className='row-cols-1 row-cols-md-3 g-4' style={{padding:"10px"}}>
        {
-        apidata.map((item)=>
-       <MDBCol >
+        apidata.map((item,i)=>
+       <MDBCol key={i}>
         <MDBCard className='h-100' style={{padding:"10px"}}>
          <center>
              <MDBCardImage
@@ -44,11 +44,11 @@ function Jwellery()
             <MDBCardText>
               {item.description.substring(0,100)}
             </MDBCardText>
-            <MDBBtn style={{width:"130px",height:"36px"}} >View Details</MDBBtn>&nbsp;&nbsp;
+            <MDBBtn style={{width:"130px",height:"36px"}}>View Details</MDBBtn>&nbsp;&nbsp;
             <MDBBtn style={{width:"130px",height:"36px"}}>AddtoCart</MDBBtn>
           </MDBCardBody>
         </MDBCard>
-      </MDBCol>  
+      </MDBCol>
         )
        }
     </MDBRow>
@@ -56,4 +56,4 @@ function Jwellery()
     </div>
   )
 }
-export default Jwellery
+export default Mobile

@@ -15,7 +15,7 @@ function Electronics()
 {
     const [apidata,setData]=useState([])
     useEffect(()=>{
-       fetch("https://fakestoreapi.com/products").then((result)=>{
+       fetch("http://localhost:4000/category/electronics").then((result)=>{
            result.json().then((data)=>{
                 setData(data)
            })
@@ -26,7 +26,6 @@ function Electronics()
        <MDBRow className='row-cols-1 row-cols-md-3 g-4' style={{padding:"10px"}}>
        {
         apidata.map((item,i)=>
-            item.category=="electronics"?
        <MDBCol key={i}>
         <MDBCard className='h-100' style={{padding:"10px"}}>
          <center>
@@ -48,7 +47,7 @@ function Electronics()
             <MDBBtn style={{width:"130px",height:"36px"}}>AddtoCart</MDBBtn>
           </MDBCardBody>
         </MDBCard>
-      </MDBCol>:null
+      </MDBCol>
         )
        }
     </MDBRow>

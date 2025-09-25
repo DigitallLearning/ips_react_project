@@ -34,8 +34,15 @@ function Upload()
          <input type="number" placeholder="Enter Id" onChange={(e)=>setId(e.target.value)}></input><br></br>
          <input type="text" placeholder="Enter Name" onChange={(e)=>setName(e.target.value)}></input><br></br>
          <input type="number" placeholder="Enter Price" onChange={(e)=>setPrice(e.target.value)}></input><br></br>
-         <input type="text" placeholder="Enter Category" onChange={(e)=>setCat(e.target.value)}></input><br></br>
-         <input type="text" placeholder="Enter Description" onChange={(e)=>setDesc(e.target.value)}></input><br></br>
+         {/* <input type="text" placeholder="Enter Category" onChange={(e)=>setCat(e.target.value)}></input><br></br> */}
+         <select onChange={(e)=>setCat(e.target.value)}>
+            <option>electronics</option>
+            <option>mobile</option>
+            <option>laptop</option>
+            <option>shoes</option>
+            <option>cloths</option>
+         </select><br></br>
+         <textarea type="text" placeholder="Enter Description" onChange={(e)=>setDesc(e.target.value)}></textarea><br></br>
          <input type="file" onChange={(e)=>setImage(e.target.files[0])}></input><br></br>
          <button onClick={submitForm}>Upload</button>
        </form>
