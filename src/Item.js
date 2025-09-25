@@ -13,10 +13,11 @@ import {
 function Item()
 {
   var location=useLocation()
-  console.log(location.state)
-    const [apidata,setData]=useState({})
+  
+    const [apidata,setData]=useState([])
     useEffect(()=>{
-         fetch("https://fakestoreapi.com/products/"+location.state).then((result)=>{
+     // console.log(location.state)
+         fetch("http://localhost:4000/"+location.state).then((result)=>{
              result.json().then((data)=>{
                 console.log(data)
                   setData(data)
@@ -27,25 +28,27 @@ function Item()
     <div>
         <center>
             <br></br>
-            <MDBCard style={{margin:"100px"}}>
+              {
+                apidata.map((item)=>
+                 <MDBCard style={{margin:"100px"}}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src={apidata.image} fluid alt='...'  style={{width:"200px",height:"200px"}}/>
+        <MDBCardImage src={item.image} fluid alt='...'  style={{width:"200px",height:"200px"}}/>
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>
       </MDBRipple>
       <MDBCardBody>
-        <MDBCardTitle style={{fontSize:"40px",color:"red"}}>{apidata.title}</MDBCardTitle>
-        <MDBCardTitle style={{fontSize:"25px",color:"blue"}}>{apidata.price*85} Rs</MDBCardTitle>
-        <MDBCardTitle style={{fontSize:"25",color:"green"}}>{apidata.category}</MDBCardTitle>
-         {/* <MDBCardTitle style={{fontSize:"25",color:"orange"}}>{apidata.rating.rate}</MDBCardTitle>
-          <MDBCardTitle style={{fontSize:"25",color:"brown"}}>{apidata.rating.count}</MDBCardTitle> */}
-        <MDBCardText>
-          {apidata.description}
+        <MDBCardTitle style={{fontSize:"40px",color:"red"}}>{item.title}</MDBCardTitle>
+        <MDBCardTitle style={{fontSize:"25px",color:"blue"}}>{item.price*85} Rs</MDBCardTitle>
+        <MDBCardTitle style={{fontSize:"25",color:"green"}}>{item.category}</MDBCardTitle>
+          <MDBCardText>
+          {item.description}
         </MDBCardText>
         <MDBBtn href='#'>Buy Now</MDBBtn>
       </MDBCardBody>
     </MDBCard>
+                )
+              }
         </center>
     </div>
    )
