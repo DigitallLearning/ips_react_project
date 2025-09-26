@@ -8,6 +8,7 @@ import Electronics from './Electronics';
 import Item from './Item';
 import Upload from './Upload';
 import Mobile from './Mobile';
+import Register from './Register';
 function Routing() {
   return (
     <>
@@ -21,6 +22,7 @@ function Routing() {
             <Link to="/laptop">Laptop</Link>&nbsp;&nbsp;&nbsp;
              <Link to="/shoe">Shoe</Link>&nbsp;&nbsp;&nbsp;
               <Link to="/cloths">Cloths</Link>&nbsp;&nbsp;&nbsp;
+               <Link to="/register">Register</Link>&nbsp;&nbsp;&nbsp;
           </Nav>
         </Container>
       </Navbar>
@@ -30,6 +32,7 @@ function Routing() {
           <Route path='/mobile' Component={Mobile}></Route>
             <Route path='/item' Component={Item}></Route>
             <Route path='/upload' Component={Upload}></Route>
+            <Route path='/register' Component={Register}></Route>
       </Routes>
     </>
   );
