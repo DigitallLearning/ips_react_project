@@ -10,7 +10,7 @@ function Register()
     {
         e.preventDefault()
        // console.log(id,name,price,desc,cat)
-       var url="http://localhost:4000/register/"
+       var url="http://localhost:4000/user/register"
        var formdata=new FormData();
        formdata.append("name",name);
        formdata.append("pass",pass);
@@ -26,7 +26,8 @@ function Register()
     <div>
      <center>
         <h1>Register User</h1>
-          <form>
+<form>
+    
 <input type="text" placeholder="Enter Name" onChange={(e)=>setName(e.target.value)}></input><br></br>
 <input type="text" placeholder="Enter Password" onChange={(e)=>setPass(e.target.value)}></input><br></br>
 <input type="text" placeholder="Enter Email" onChange={(e)=>setEmail(e.target.value)}></input><br></br>
