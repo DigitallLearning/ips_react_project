@@ -30,9 +30,9 @@ function Item()
             <br></br>
               {
                 apidata.map((item)=>
-                 <MDBCard style={{margin:"100px"}}>
+                 <MDBCard style={{margin:"100px"}} >
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage src={item.image} fluid alt='...'  style={{width:"200px",height:"200px"}}/>
+        <MDBCardImage src={item.image} fluid alt='...'  style={{width:"200px",height:"200px",marginTop:"10px"}}/>
         <a>
           <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
         </a>
