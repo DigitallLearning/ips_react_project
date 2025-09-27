@@ -16,6 +16,7 @@ function Login()
     //    formdata.append("name",name);
     //    formdata.append("pass",pass);
        axios.post(url,data).then((result)=>{
+          localStorage.setItem("user",name)
           if(result.data=="User Login Sucessfully")
           {
              navigate("/upload")

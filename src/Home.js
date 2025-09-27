@@ -32,7 +32,7 @@ function Home()
     }
     function addtocard(id,title,price,image)
     {
-            var url="http://localhost:4000/card"
+            var url="http://localhost:4000/prd/card"
        var formdata=new FormData();
        formdata.append("id",id);
        formdata.append("title",title);

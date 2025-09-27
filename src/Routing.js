@@ -10,6 +10,7 @@ import Upload from './Upload';
 import Mobile from './Mobile';
 import Register from './Register';
 import Login from './Login';
+import Card from './Card';
 function Routing() {
   return (
     <>
@@ -24,7 +25,8 @@ function Routing() {
              <Link to="/shoe">Shoe</Link>&nbsp;&nbsp;&nbsp;
               <Link to="/cloths">Cloths</Link>&nbsp;&nbsp;&nbsp;
                <Link to="/register">Register</Link>&nbsp;&nbsp;&nbsp;
-                <Link to="/login">Login</Link>&nbsp;&nbsp;&nbsp;
+               <Link to="/login">Login</Link>&nbsp;&nbsp;&nbsp;
+              <Link to="/card">Card</Link>&nbsp;&nbsp;&nbsp;
           </Nav>
         </Container>
       </Navbar>
@@ -36,6 +38,7 @@ function Routing() {
             <Route path='/upload' Component={Upload}></Route>
             <Route path='/register' Component={Register}></Route>
             <Route path='/login' Component={Login}></Route>
+            <Route path='/card' Component={Card}></Route>
       </Routes>
     </>
   );

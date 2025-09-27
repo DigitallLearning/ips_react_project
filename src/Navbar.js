@@ -8,7 +8,7 @@ import Upload from './Upload';
 import Mobile from './Mobile';
 import Register from './Register';
 import Login from './Login';
-
+import logo from "./logo.svg"
 import {
     Nav,
     NavLink,
@@ -17,8 +17,15 @@ import {
     NavBtn,
     NavBtnLink,
 } from "./NavbarElements";
-
+import Card from './Card';
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
+     const navigate=useNavigate()
+    function logout()
+    {
+        localStorage.clear();
+        navigate("/")
+    }
     return (
         <>
             <Nav>
@@ -46,15 +53,29 @@ const Navbar = () => {
                    
                 </NavMenu>
                 <NavBtn>
-                    <NavBtnLink to="/login">
+                    {
+                        !localStorage.getItem("user")?
+                         <div>
+                            <NavBtnLink to="/login">
                        Login
                     </NavBtnLink>
                     <NavBtnLink to="/register">
                        Register
                     </NavBtnLink>
-
+                         </div>:
+                   
+                    <NavBtnLink to="/logout" onClick={()=>logout()}>
+                       Logout
+                    </NavBtnLink>
+                        
+                    }
+                    <NavBtnLink to="/card">
+                       Card
+                    </NavBtnLink>
+                   
                 </NavBtn>
-                
+                <img src={logo} style={{width:"50px",height:"50px"}}></img>
+                <label>{ localStorage.getItem("user")}</label>
             </Nav>
             <Routes>
         <Route path='/' Component={Home}></Route>
@@ -64,6 +85,8 @@ const Navbar = () => {
             <Route path='/upload' Component={Upload}></Route>
             <Route path='/register' Component={Register}></Route>
             <Route path='/login' Component={Login}></Route>
+            <Route path='/card' Component={Card}></Route>
+            <Route path='/logout' Component={Home}></Route>
       </Routes>
         </>
     );
