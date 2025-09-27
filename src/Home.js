@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import React from 'react';
+import axios from "axios";
 import {
   MDBCard,
   MDBCardImage,
@@ -29,6 +30,20 @@ function Home()
     {
         navigate("/item",{state:pid})
     }
+    function addtocard(id,title,price,image)
+    {
+            var url="http://localhost:4000/card"
+       var formdata=new FormData();
+       formdata.append("id",id);
+       formdata.append("title",title);
+       formdata.append("price",price);
+       formdata.append("image",image);
+       axios.post(url,formdata).then((result)=>{
+           //console.log(result.data)
+           alert("Add to card Sucessfully")
+
+       })
+    }
   return(
     <div>
        <MDBRow className='row-cols-1 row-cols-md-3 g-4' style={{padding:"10px"} }>
@@ -52,7 +67,7 @@ function Home()
               {item.description.substring(0,100)}
             </MDBCardText>
             <MDBBtn style={{width:"130px",height:"36px"}} onClick={()=>singleData(item.id)}>View Details</MDBBtn>&nbsp;&nbsp;
-            <MDBBtn style={{width:"130px",height:"36px"}}>AddtoCart</MDBBtn>
+            <MDBBtn style={{width:"130px",height:"36px"}} onClick={()=>addtocard(item.id,item.title,item.price,item.image)}>AddtoCart</MDBBtn>
           </MDBCardBody>
         </MDBCard>
       </MDBCol>  
